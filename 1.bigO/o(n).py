@@ -1,5 +1,6 @@
 ##################
 # <> Big O: O(n)
+#   Linear
 ##################
 # Implement a Python function called print_items.
 
