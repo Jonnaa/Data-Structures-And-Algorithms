@@ -16,21 +16,28 @@ class LinkedList:
         self.tail = new_node
         self.length = 1
 
+    #Print list method that iterates through the linked list array and prints each value - O(n)
     def print_list(self):
         temp = self.head
         while temp is not None:
             print(temp.value)
             temp = temp.next
 
+    #Append to the end of the linked list - O(1)
     def append(self,value):
+        #Create a new node using Node class
         new_node = Node(value)
-        if self.head is None:
+        #If linked list empty(no last item to point to new node) : set head and tail to new node
+        if self.length == 0:
             self.head = new_node
             self.tail = new_node
+        #Else: point tail's next to new node, then point tail to new node to change end
         else: 
             self.tail.next = new_node
             self.tail = new_node
+        #Increase length of linked list by 1
         self.length+=1
+        #For later exercises
         return True
     
 
