@@ -43,19 +43,27 @@ class LinkedList:
         return True
     
     def pop(self):
+        #Edge case 1, if list is empty return none
         if self.length==0:
             return None
+        #Edge case 2, if list only has 1 node, remove node and change length, return popped node
         elif self.length==1:
             new_node = Node(None)
+            popped = self.head
             self.head=new_node
             self.tail=new_node
             self.length=0
+            return popped
         else:
             temp = self.head
+            # if temp.next is equal to tail, then we have found the node before tail(which will be our new tail)
             while temp.next != self.tail:
                 temp = temp.next
+            # Save our old tail to return later
             popped = self.tail
+            # Change tail pointer to our new tail
             self.tail = temp
+            # Change new tail.next to None
             self.tail.next=None
             self.length-=1
             return popped
