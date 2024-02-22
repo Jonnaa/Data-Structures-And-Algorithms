@@ -48,10 +48,9 @@ class LinkedList:
             return None
         #Edge case 2, if list only has 1 node, remove node and change length, return popped node
         elif self.length==1:
-            new_node = Node(None)
             popped = self.head
-            self.head=new_node
-            self.tail=new_node
+            self.head=None
+            self.tail=None
             self.length=0
             return popped
         else:
