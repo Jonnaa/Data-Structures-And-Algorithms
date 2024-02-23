@@ -150,11 +150,12 @@ class LinkedList:
             return self.prepend(value)
         else:
             new_node = Node(value)
-            temp = self.head 
-            count = 0
-            while index-count-1!=0:
-                temp = temp.next
-                count+=1
+            # temp = self.head 
+            # count = 0
+            # while index-count-1!=0:
+            #     temp = temp.next
+            #     count+=1
+            temp = self.get(index-1)
             rest = temp.next
             new_node.next = rest
             temp.next = new_node
