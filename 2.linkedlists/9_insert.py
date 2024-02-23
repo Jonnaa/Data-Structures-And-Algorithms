@@ -144,7 +144,7 @@ class LinkedList:
         
     def insert(self,index, value):
         #Edge cases
-        if self.length ==0 or index<0 or index>self.length:
+        if index<0 or index>self.length:
             return False
         elif index==0:
             return self.prepend(value)
