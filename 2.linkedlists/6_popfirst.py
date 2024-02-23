@@ -1,6 +1,6 @@
 ############################################
 
-# Linked Lists Prepend Lesson
+# Linked Lists Pop First Lesson
 
 ############################################
 
