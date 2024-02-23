@@ -105,14 +105,19 @@ class LinkedList:
             return temp
     
     def get(self,index):
+        #Edge cases, if LL length 0 or index is either a negative number or greater than LL length, return None
         if self.length ==0 or index<0 or index>self.length:
             return None
         else:
+            #Start by saving first node to temp
             temp = self.head
+            #Keep a counter that starts from 0
             count = 0
+            #While counter is not index, we will keep pointing temp to temp.next and increasing counter
             while count!=index:
                 temp = temp.next
                 count+=1
+            #Return temp, which is the node we are getting
             return temp
         
 my_linked_list = LinkedList(1)
