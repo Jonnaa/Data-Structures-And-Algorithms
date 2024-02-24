@@ -22,10 +22,22 @@ class LinkedList:
         return True
 
     def has_loop(self):
+        #Edge case: If list is empty, no loop exists
         if self.length <=1:
             return False
+        #Edge case: if list has 1 node and tail.next is not None, return True
+        elif self.length==1:
+            if self.tail.next == None:
+                return False
+            return True
+        #Floyd's cycle-finding algorithm (also known as the "tortoise and the hare" algorithm)
+        #Both variables start at head
         tortoise = self.head
         hare = self.head
+        #Loop runs while hare is not None and it also isnt the tail
+        #Avoiding infinite loop by:
+        #   Having pointer changes in loop
+        #   if to check if tortoise and hare have met eachother again, which would indicate a loop(True)
         while hare is not None and hare!=self.tail:
             tortoise=tortoise.next
             hare=hare.next.next
