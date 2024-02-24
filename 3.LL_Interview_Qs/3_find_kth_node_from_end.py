@@ -32,22 +32,26 @@ class LinkedList:
 #                                             #
 ###############################################
 def find_kth_from_end(LL,k):
-    if LL.head == 0:
+    #Edge case if LL is empty
+    if LL.head == None:
         return None
+    #2 pointers needed
     slow_pointer= LL.head
     fast_pointer= LL.head
 
+    #First moving fast pointer ahead k nodes, if fast pointer becomes None
+    #   Before reaching k, then K is out of bounds
     counter = 0
     while counter<k:
         if(fast_pointer is None):
             return None
         fast_pointer=fast_pointer.next
         counter+=1
-    # fast_pointer=LL.head
-
+    # slow and fast will now move 1 node at a time, while fast pointer is not none
     while fast_pointer is not None:
         slow_pointer=slow_pointer.next
         fast_pointer=fast_pointer.next
+    # once fast_pointer is none, then slow pointer will be at index k from tail
     return slow_pointer
 
 
