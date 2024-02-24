@@ -36,11 +36,13 @@ class LinkedList:
         return True
         
     def find_middle_node(self):
-        # if self.length<3:
-        #     return None
-
+        #2 variables will be needed since we cannot use(dont have) a self.length
+        #Slow temp will move node by node
         slow_temp = self.head
+        #fast temp will move 2 nodes at a time(twice as fast)
         fast_temp = self.head
+        #Once fast temp is the tail, or has no next, then the loop is finished
+        #When the loop is finished, this mean slow temp should be at the middle node
 
         while fast_temp!=self.tail and fast_temp is not None:
             # print("Old slow: ",slow_temp.value)
