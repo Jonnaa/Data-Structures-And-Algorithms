@@ -33,17 +33,48 @@ class DoublyLinkedList:
 
     ## WRITE REVERSE METHOD HERE ##
     def reverse(self):
-        
+        # plan of attack
+        #   use 2 pointers, one for
+        #   my thinking is that since everything is connected I can go about this 2 nodes
+        #   at a time rather than 3 like singly linked lists
+        #   
+        #   start from head and head.next
+        #   change everything except head.next.next so we have a way to access the next
+        #   set of nodes
+        if self.length<=1:
+            return False
+        left = self.head
+        print("first left: ",left.value)
+        right = self.head.next
+        for i in range(self.length-1):
+            after = right.next
+            # print("---------------")
+            # print(right.value)
+            # print("Left before changes - Value: ",left.value," Prev: ",left.prev," Next: ",left.next.value)
+            temp = left.prev
+            left.next = temp
+            left.prev = right
+            # print("Left after changes - Value: ",left.value," Prev: ",left.prev.value," Next: ",left.next)
+            
+            left = right
+            print("New left: ",left.value)
+            right = after
+            temp = self.head
+
+        old_head = self.head
+        self.head = self.tail
+        self.tail = old_head    
+        return True
     ###############################
 
 
 
 
 my_doubly_linked_list = DoublyLinkedList(1)
-my_doubly_linked_list.append(2)
 my_doubly_linked_list.append(3)
-my_doubly_linked_list.append(4)
 my_doubly_linked_list.append(5)
+# my_doubly_linked_list.append(4)
+# my_doubly_linked_list.append(5)
 
 
 print('DLL before reverse():')
