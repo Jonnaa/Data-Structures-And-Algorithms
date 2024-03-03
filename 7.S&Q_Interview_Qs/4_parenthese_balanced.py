@@ -43,10 +43,29 @@ class Stack:
 
 # WRITE IS_BALANCED_PARENTHESES FUNCTION HERE #
 def is_balanced_parentheses(str):
-        
+        count = 0
+        for i in range(len(str)):
+            # print(str[i])
+            if str[i]=="(":
+                count+=1
+                # print("Count: ",count)
+            elif str[i]==")":
+                if count==0:
+                    # print("Count negative")
+                    count-=1
+                    # print("Count: ",count)
+                    break
+                else:
+                    count-=1
+        if count==0:
+            return True
+        else:
+            return False
+
 ###############################################
-
-
+# print("------------------------")
+# print(is_balanced_parentheses(')('))
+# print("------------------------")
 
 
 def test_is_balanced_parentheses():
