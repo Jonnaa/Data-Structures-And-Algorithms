@@ -54,20 +54,8 @@ def sort_stack(input_stack):
     sorted_stack = Stack()
     while input_stack.is_empty()==False:
         temp = input_stack.pop()
-        print("Sorted stack before while loop")
-        sorted_stack.print_stack()
-        print("Input stack before while loop")
-        input_stack.print_stack()
         while sorted_stack.is_empty()==False and sorted_stack.peek() > temp:
-            print("Sorted Stack before pop: ")
-            sorted_stack.print_stack()
             input_stack.push(sorted_stack.pop())
-            print("Input stack after pop: ")
-        print("Sorted stack after while loop")
-        sorted_stack.print_stack()
-        print("Input stack after while loop")
-        input_stack.print_stack()
-
         sorted_stack.push(temp)
 
     while sorted_stack.is_empty()==False:
