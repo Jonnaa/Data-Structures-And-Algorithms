@@ -24,12 +24,12 @@ class BinarySearchTree:
       if new_node.value<temp.value:
         if temp.left == None:
           temp.left = new_node
-          return False
+          return True
         temp = temp.left
       else:
         if temp.right ==None:
           temp.right = new_node
-          return False
+          return True
         temp=temp.right
   
 # Steps for contains method

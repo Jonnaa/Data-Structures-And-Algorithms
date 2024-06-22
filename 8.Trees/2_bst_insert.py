@@ -34,14 +34,14 @@ class BinarySearchTree:
       if new_node.value < temp.value:
         if temp.left == None:
           temp.left = new_node
-          return False
+          return True
         # This is the else, but no need to write it
         #   since it will only run if temp.left node exists
         temp = temp.left
       else:
         if temp.right == None:
           temp.right = new_node
-          return False
+          return True
         # This is the else, but no need to write it
         #   since it will only run if temp.right node exists
         temp = temp.right
