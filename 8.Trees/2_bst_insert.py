@@ -20,20 +20,30 @@ class BinarySearchTree:
     new_node = Node(value)
     if self.root == None:
       self.root = new_node
-      return True
     temp = self.root
-    while True:
-      if new_node.value == temp.value:
+    while(True):
+      # Case 1: temp is equal to new_node, so exit
+      #   this would come about if trying to insert a value that already exist
+      if new_node == temp:
         return False
+      # check if new_node is less than or greater than temp
+      #   this would determine if we go left or right
+      #   once we go left or right, we check if temp.left or temp.right
+      #   is empty and we can set it to new_node
+      #   else, we update temp to temp.left or temp.right to keep going down the tree
       if new_node.value < temp.value:
-        if not temp.left:
+        if temp.left == None:
           temp.left = new_node
-          return True
+          return False
+        # This is the else, but no need to write it
+        #   since it will only run if temp.left node exists
         temp = temp.left
       else:
-        if not temp.right:
+        if temp.right == None:
           temp.right = new_node
-          return True
+          return False
+        # This is the else, but no need to write it
+        #   since it will only run if temp.right node exists
         temp = temp.right
 
 # Instantiate a tree using the binary search tree class
